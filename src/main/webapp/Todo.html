@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Todo</title>
+</head>
+<body>
+  <h2>Todo追加</h2>
+  <label>Todo<input type="text"></label><br>
+  <label>期日<input type="date"></label>
+  <label>Tag<input type="text"></label><button>追加</button>
+  <br>
+  <button>追加</button><br>
+  <hr>
+  <div>
+    <h2>やること</h2>
+    <ul>
+      <li>
+        親リスト1
+        <ul>
+          <li>子リスト1-1</li>
+          <li>(こんな感じでやれば入れ子リストできる)</li>
+        </ul>
+      </li>
+      <li>
+        <input type="checkbox">課題
+        <ul>
+          <li>コード作成</li>
+          <li>レポート</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h2>終了したタスク</h2>
+    <ul>
+      <li>
+        <input type="checkbox" checked>バイト
+        <p>チェックボックスが押されたやつは、親子クラスどちらもこっちに送る</p>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
