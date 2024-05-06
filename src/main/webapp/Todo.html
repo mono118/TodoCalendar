@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Todo</title>
+	<meta charset="utf-8">
+	<title>Todo</title>
+	<link rel="stylesheet" href="Todo.css">
+	<style>
+		*{
+			outline: 1px solid #ff0000;
+			/*padding,margine の確認用　最後に消す*/
+		}
+	</style>
 </head>
 <body>
-  <h2>Todo追加</h2>
-  <label>Todo<input type="text"></label><br>
-  <label>期日<input type="date"></label>
-  <label>Tag<input type="text"></label><button>追加</button>
-  <br>
-  <button>追加</button><br>
-  <hr>
-  <div>
-    <h2>やること</h2>
-    <ul>
-      <li>
-        親リスト1
-        <ul>
-          <li>子リスト1-1</li>
-          <li>(こんな感じでやれば入れ子リストできる)</li>
-        </ul>
-      </li>
-      <li>
-        <input type="checkbox">課題
-        <ul>
-          <li>コード作成</li>
-          <li>レポート</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  <div>
-    <h2>終了したタスク</h2>
-    <ul>
-      <li>
-        <input type="checkbox" checked>バイト
-        <p>チェックボックスが押されたやつは、親子クラスどちらもこっちに送る</p>
-      </li>
-    </ul>
-  </div>
+	<div id="AddTask">
+		<h2>Todo追加</h2>
+		<label>Todo：<input id="tName" type="text" placeholder="レポート"></label><br>
+		<label>期日：<input id="tDate" type="date"></label>
+		<label>Tag：<input id="tTag" type="text" size="10" placeholder="大学 緊急">　</label><!--タグ追加のためのボタンいらないかもしれないからコメントアウト<button>追加</button>-->
+		<br>
+		<label>メモ：<br><textarea id="tMemo"></textarea></label><br>
+		<button id="taskAdd" type="submit">追加</button><br>
+	</div>
+	<hr>
+	<div id="ongoingList">
+		<h2>やること</h2>
+		<ul class="taskList">
+		<!--class:taskListは、タスクを並べる、一番親となるリストにつけられる　このul要素にタスクを追加していく-->
+			<li class="task">
+			<input class="finished" type="checkbox">親リスト1
+			<ul>
+				<li>子リスト1-1</li>
+				<li>(こんな感じでやれば入れ子リストできる)</li>
+			</ul>
+			</li>
+			<li class="task">
+			<input class="finished" type="checkbox">課題
+			<ul>
+				<li>コード作成</li>
+				<li>レポート</li>
+			</ul>
+			</li>
+		</ul>
+	</div>
+	<hr>
+	<div id="finishedList">
+	<h2>終了したタスク</h2>
+	<ul class="taskList">
+		<li class="task">
+		<input class="finished" type="checkbox" checked>バイト
+		<p>チェックボックスが押されたやつは、親子クラスどちらもこっちに送る</p>
+		</li>
+	</ul>
+	</div>
+	<script src="Todo.js"></script>
 </body>
 </html>
+
+<!--
+	memo:
+	子要素1に追加する子要素2の追加方法の検討 classで判別して追加するか、taskLIstからの操作か
+	taskのcheckboxに応じたListの移動方 jsで実装
+	タスクの削除について　button要素をtaskList内部のtaskに追加していくのがベター？
+-->
