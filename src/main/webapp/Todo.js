@@ -2,7 +2,7 @@ const goingList = document.getElementById("ongoingList");
 const completedList = document.getElementById("completedList");
 
 function taskAdding(){
-    let taskName = document.getElementById("tName").value;
+    let taskName = document.getElementById("tName");
     let taskDate = document.getElementById("tDate");
     let taskTags = document.getElementById("tTag");
     let taskMemo = document.getElementById("tMemo");
@@ -21,8 +21,14 @@ function taskAdding(){
         }
     });
     list.appendChild(input);
-    const listName = document.createTextNode(taskName);
-    list.appendChild(listName);
+    list.appendChild(document.createTextNode(taskName.value));
+    taskName.value = ""; //入力ボックスの中身を空に
+    if(taskMemo.value != ""){ //listにメモの追加
+        let text = document.createElement("p");
+        text.innerText = taskMemo.value;
+        list.appendChild(text);
+        taskMemo.value = "";
+    }
     //リストに追加
     goingList.appendChild(list);
 }
