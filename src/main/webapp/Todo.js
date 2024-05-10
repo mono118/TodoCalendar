@@ -5,18 +5,17 @@ function taskAdding(){
     let taskMemo = document.getElementById("tMemo");
     let taskTagList = tagmake(taskTags.value);
     
-    const goingListDiv = document.getElementById("ongoingList");
     let list = document.createElement("li") //追加するタスクを記述していく
     list.className = "task";
     let input = document.createElement("input");
-    input.className = "finished";
+    input.className = "finish";
     input.type = "checkbox";
     list.appendChild(input);
     const listName = document.createTextNode(taskName);
     list.appendChild(listName);
     //リストに追加
-    const goingul = goingListDiv.getElementsByClassName("taskList")[0];
-    goingul.appendChild(list);
+    const goingList = document.getElementById("ongoingList");
+    goingList.appendChild(list);
 }
 
 function tagmake(Tags){

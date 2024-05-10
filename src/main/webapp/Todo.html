@@ -22,19 +22,19 @@
 		<button id="taskAdd" type="submit">追加</button><br>
 	</div>
 	<hr>
-	<div id="ongoingList">
+	<div id="ongoing">
 		<h2>やること</h2>
-		<ul class="taskList">
+		<ul id="ongoingList" class="taskList">
 		<!--class:taskListは、タスクを並べる、一番親となるリストにつけられる　このul要素にタスクを追加していく-->
 			<li class="task">
-			<input class="finished" type="checkbox">親リスト1
+			<input class="finish" type="checkbox">親リスト1
 			<ul>
 				<li>子リスト1-1</li>
 				<li>(こんな感じでやれば入れ子リストできる)</li>
 			</ul>
 			</li>
 			<li class="task">
-			<input class="finished" type="checkbox">課題
+			<input class="finish" type="checkbox">課題
 			<ul>
 				<li>コード作成</li>
 				<li>レポート</li>
@@ -43,11 +43,11 @@
 		</ul>
 	</div>
 	<hr>
-	<div id="finishedList">
+	<div id="completed">
 	<h2>終了したタスク</h2>
-	<ul class="taskList">
+	<ul id="completedList" class="taskList">
 		<li class="task">
-		<input class="finished" type="checkbox" checked>バイト
+		<input class="finish" type="checkbox" checked>バイト
 		<p>チェックボックスが押されたやつは、親子クラスどちらもこっちに送る</p>
 		</li>
 	</ul>
