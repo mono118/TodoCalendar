@@ -13,6 +13,14 @@ function taskAdding(){
     let input = document.createElement("input");
     input.className = "finish";
     input.type = "checkbox";
+    let button = document.createElement("button");
+    button.innerText = "削除";
+    button.addEventListener("click", (event) => {
+        const deletecheck = window.confirm("削除しますか？");
+        if(deletecheck){
+            list.closest(".taskList").removeChild(list);
+        }
+    });
     input.addEventListener("change", function(){ //進行中・終了済みのリスト間移動の処理
         if(input.checked){
             completedList.appendChild(goingList.removeChild(list));
@@ -23,6 +31,7 @@ function taskAdding(){
     list.appendChild(input);
     list.appendChild(document.createTextNode(taskName.value));
     taskName.value = ""; //入力ボックスの中身を空に
+    list.appendChild(button);
     if(taskMemo.value != ""){ //listにメモの追加
         let text = document.createElement("p");
         text.innerText = taskMemo.value;
