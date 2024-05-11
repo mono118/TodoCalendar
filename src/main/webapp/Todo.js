@@ -15,13 +15,13 @@ function taskAdding(){
     input.type = "checkbox";
     let button = document.createElement("button");
     button.innerText = "削除";
-    button.addEventListener("click", (event) => {
+    button.addEventListener("click", () => {
         const deletecheck = window.confirm("削除しますか？");
         if(deletecheck){
-            list.closest(".taskList").removeChild(list);
+            list.parentElement.removeChild(list);
         }
     });
-    input.addEventListener("change", function(){ //進行中・終了済みのリスト間移動の処理
+    input.addEventListener("change", () => { //進行中・終了済みのリスト間移動の処理
         if(input.checked){
             completedList.appendChild(goingList.removeChild(list));
         }else{
