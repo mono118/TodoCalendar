@@ -21,15 +21,15 @@ function taskAdding(){
             list.parentElement.removeChild(list);
         }
     });
+    let cul = document.createElement("ul");
     let childtaskButton = document.createElement("button"); //子タスク追加ボタン
     childtaskButton.innerText = "+";
     childtaskButton.addEventListener("click", () => {
-        let cul = document.createElement("ul");
         let clist = document.createElement("li");
         let ctext = document.createTextNode(prompt("タスクの名前を入力"));
+        if(ctext.textContent == "") {return;}
         clist.appendChild(ctext);
         cul.appendChild(clist);
-        list.appendChild(cul);
     });
     input.addEventListener("change", () => { //進行中・終了済みのリスト間移動の処理
         if(input.checked){
@@ -45,10 +45,11 @@ function taskAdding(){
     list.appendChild(deleatButton);
     if(todoMemo.value != ""){ //listにメモの追加
         let text = document.createElement("p");
-        text.innerText = taskMemo.value;
+        text.innerText = todoMemo.value;
         list.appendChild(text);
         todoMemo.value = "";
     }
+    list.appendChild(cul);
     //リストに追加
     goingList.appendChild(list);
 }
